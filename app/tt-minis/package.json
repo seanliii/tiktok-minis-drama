@@ -1,12 +1,13 @@
 {
-  "name": "tt-minis-aurora",
-  "version": "0.1.0",
+  "name": "tt-minis-dramaverse",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
-  "description": "Aurora Drama - TikTok Minis 漫剧小程序",
+  "description": "DramaVerseJP - TikTok Minis 日本市场漫剧（短剧）",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "build:minis": "npm run build && ttdx minis build:after --sandbox",
     "preview": "vite preview"
   },
   "dependencies": {
