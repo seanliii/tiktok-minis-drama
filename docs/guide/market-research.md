@@ -44,6 +44,8 @@ TikTok Minis 是运行在 TikTok WebView 里的 **H5 Web App**，通过 `window.
 - **主页入口**：主页右上角菜单 → `TikTok Minis` 查看全部小程序
 - **视频锚点**：短视频挂载 Minis 组件，点击即用，无需跳转 / 下载
 
+![TikTok Minis 入口界面参考](../progress/screenshots/market-research-top.png)
+
 **短剧小程序内部典型界面**（以 TikTok 自家 LimeShorts 为参照，各家大同小异）：
 
 | 区块 | 样式与内容 |
@@ -155,6 +157,20 @@ LimeShorts 产品设计简洁：首页顶部仅 logo 和搜索框，奖励金入
 | FlickReels | 杭州掌玩 | 同比暴涨 **2300%** | 投放见长的爆发户 |
 | FlareFlow | 中文在线 | 超 3 亿元（海外榜第 10） | 2025 Q3 收入大涨推动集团营收 |
 | VibeShort / StoryReel | AI 内容主打 | 内购 890 万 / 830 万美元 | AI 剧新贵，杀进前十 |
+
+### 界面参考：头部付费 App 官方商店截图
+
+> 以下图片为各 App 在 App Store 的公开宣传截图，用于界面风格与产品形态参考。
+
+| ReelShort（行业第一） | LimeShorts（TikTok 自家） | DramaWave（已开漫剧频道） |
+| --- | --- | --- |
+| ![ReelShort 首页](images/reelshort-1.jpg) | ![LimeShorts 界面](images/limeshorts-1.jpg) | ![DramaWave 界面](images/dramawave-1.jpg) |
+
+| DramaBox | ShortMax | NetShort |
+| --- | --- | --- |
+| ![DramaBox 界面](images/dramabox-1.jpg) | ![ShortMax 界面](images/shortmax-1.jpg) | ![NetShort 界面](images/netshort-1.jpg) |
+
+**界面共同范式**：竖屏大图剧单瀑布流、题材标签（霸总/狼人/逆袭）、底部三 Tab（首页 / 继续观看 / 个人中心）、付费解锁引导——这正是我们 Minis 首版界面的基线。
 
 ### Minis 站内玩家（与我们同场竞技）
 
