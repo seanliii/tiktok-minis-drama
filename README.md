@@ -5,6 +5,7 @@ TikTok Minis「漫剧」付费 + 订阅小程序。团队协作站点，只有�
 | 板块 | 地址 | 说明 |
 | --- | --- | --- |
 | 进度看板 | https://seanliii.github.io/tiktok-minis-drama/ | 必要功能清单、T+N 开发方案、工作流看板、**全部开发记录**（每次代码提交同步更新，含功能描述与界面截图） |
+| 开发文档 | https://seanliii.github.io/tiktok-minis-drama/guide/ | 6 篇 TikTok Minis 官方文档汇总（技术形态 / 调试 / 登录 / 授权 / 支付 / 接入全流程） |
 | 优化池提交 | https://seanliii.github.io/tiktok-minis-drama/pool/ | 一键提交问题 / 建议（**支持粘贴截图**），列表实时展示处理状态；每页底部可直接评论留言 |
 
 ## 开发节奏

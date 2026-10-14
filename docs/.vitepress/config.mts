@@ -12,6 +12,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '进度看板', link: '/' },
+      { text: '开发文档', link: '/guide/' },
       { text: '市场调研', link: '/guide/market-research' },
       { text: '优化池提交', link: '/pool/' },
     ],
