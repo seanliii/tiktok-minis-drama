@@ -20,6 +20,8 @@ const statusBadge = (s) => {
 
 ::: tip 开发已启动（T = 2026-10-14）
 新应用 **DramaVerseJP**（App ID `7696338880869500980`，Client Key `mnxhskb12ahzifub`）已创建并定位**日本市场**（日语界面）。前端核心页面已完成，代码包已上传平台等待扫描。旧 Aurora Drama 弃用。使用 / 上传 / 数据说明见 [日本市场指南](/guide/jp-usage)。
+
+**Basic Information 进展**：App 图标 ✅、邮箱验证 ✅（vortex528@gmail.com）、版权声明 ✅、信任域名 3 个 ✅、Terms/Privacy 页面 ✅ 已部署。表单保存存在卡点（Save/Submit 不发请求），交接清单见 [004 更新](/progress/updates/2026-10-14-004-basic-info)。
 :::
 
 ## 必要功能清单（MVP）
@@ -63,7 +65,8 @@ const statusBadge = (s) => {
 
 | 工作流 | 当前状态 | 负责人 | 计划时间 |
 | --- | --- | --- | --- |
-| 账号与商务合规 | 账号已就绪，合规进行中 | 商务 | 持续并行 |
+| 账号与商务合规 | 账号已就绪，行业资质审核中 | 商务 | 持续并行 |
+| Basic Information | 图标/邮箱/版权/域名完成，表单保存卡点待人工排查 | 人工 | 2026-10-14 |
 | 环境准备 | 已完成 | AI | T+0 |
 | 基础架构 | 已完成 | AI | T+0 |
 | 登录授权 | 前端完成，后端待接 | AI | T+0 |
@@ -73,6 +76,7 @@ const statusBadge = (s) => {
 | 订阅 | 前端浮层完成，后端待接 | AI | T+2 |
 | 测试验收 | 未开始 | 测试 | T+3 ~ T+4 |
 | 发版审核 | 未开始 | 平台 | T+5 起 |
+| 媒资接入（Media Assets & Player） | 未开始（上线前置硬性要求） | AI | 资质过审后 |
 
 ## 开发记录
 

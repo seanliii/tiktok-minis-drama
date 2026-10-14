@@ -92,20 +92,77 @@ DramaVerseJP（App ID `7696338880869500980`）是面向**日本市场**的 TikTo
 - 日维度报表 T+1
 - 收入类数据需企业认证 + 结算合同完成后可见
 
-## 4. 上线前清单（0/6 → 6/6）
+## 4. 内容上传规范（Media Assets）
+
+> 2026-09-28 新规：新通过行业资质的短剧开发者**必须**接入平台媒资库（Media Assets）与官方播放器（BytePlus VePlayer）。视频只有经过平台审核 + 上架后，才能在 Minis 内由官方播放器播出；**不允许绕过平台直接用自己的播放地址**。
+
+### 4.1 媒资托管链路
+
+```
+自己上传 BytePlus 存储 / 或通过 TikTok Open API 自动同步
+        → TikTok 开发者平台媒资库（绑定 BytePlus 账号）
+        → 提交审核（Moderation）
+        → 上架（Listing）
+        → Minis 内用官方播放器按 album_id + episode_id 播放
+```
+
+### 4.2 视频文件格式规范
+
+| 类别 | 支持格式 | 大小限制 |
+| --- | --- | --- |
+| 视频 | MP4、FLV、ASF(WMV)、RM、RMVB、MPEG、MOV、AVI、FLASH、MPEG-TS(MTS)、M4S、M3U8、MKV | 单文件 ≤ 20 GB |
+| 音频 | MP3、M4A、WAV、WMA、AMR、AAC、OGG | 单文件 ≤ 20 GB |
+| 字幕 | VTT、SRT、ASS、TTML；多语言字幕包**必须包含英文**；英语视频可直接上传（字幕包可选） | — |
+
+### 4.3 审核时长
+
+| 类别 | 说明 | 审核时长 |
+| --- | --- | --- |
+| Normal | 已完结短剧，建议先传 500–1000 部铺量 | **2 周** |
+| Urgent | 连载中（首播新剧 / 近期有消费的老剧），**每机构每天限传 35 部** | **1–3 个工作日** |
+
+### 4.4 内容红线（平台审核标准）
+
+| 大类 | 禁止内容 |
+| --- | --- |
+| 安全与文明 | 暴力犯罪、仇恨歧视、极端组织、骚扰霸凌、虐待剥削 |
+| 心理健康 | 自杀自残、饮食障碍、危险挑战 |
+| 敏感主题 | 裸露与性行为、血腥惊悚、动物虐待 |
+| 真实性与诚信 | 谣言与选举诚信、**AI 生成内容必须明确标注**、抄袭侵权、刷量造假 |
+| 商业合规 | 违禁品交易、欺诈诈骗；品牌推广必须使用平台「内容披露设置」标注商业内容 |
+| 隐私安全 | 泄露他人隐私信息、攻击平台系统 |
+
+### 4.5 播放规则（重要）
+
+- 播放 = **审核状态 × 上架状态** 双重控制：
+  - 未提审 / 审核中 / 审核未通过 / 已过审未上架 / 已下架 → **一律不可播放**
+  - 某版本中**任一集**审核失败 → **该版本全部剧集不可播放**（需整改后重新提审）
+- 播放必须传 `album_id + episode_id` 调官方播放器，平台校验版权、审核、上架、账号绑定
+- 一部剧的所有集必须属于**同一个 BytePlus 账号的同一个空间**
+- 不允许自研播放器（必须用 BytePlus VePlayer）
+
+### 4.6 接入步骤（何时做）
+
+1. 行业资质过审后 → 平台「Industry solutions → Media asset management → Activate」
+2. 注册 BytePlus 账号（VOD 服务，签约约 **1 周**，有短剧优惠价）→ 拿 Account ID + AccessKeyID + SecretAccessKey
+3. 平台「Manage accounts → Connect BytePlus account」绑定并验证 AK/SK
+4. 通过 Open API 完成视频上传 / 提交审核 / 上架（或先传 BytePlus 再免重复上传直接提审）
+5. 前端播放页改为调用官方播放器（传 `album_id` / `episode_id`）
+
+## 5. 上线前清单（0/6 → 6/6）
 
 当前 DramaVerseJP 的启动清单完成度：
 
 | 步骤 | 状态 | 说明 |
 | --- | --- | --- |
 | Complete business verification | ⬜ | 企业认证（组织 Owner 操作） |
-| Apply for industry qualification | ⬜ | 行业资质申请 |
+| Apply for industry qualification | 🔶 | 行业资质已提交，审核中（status=4） |
 | Apply for general launch approval | ⬜ | 发布审批 |
-| Activate media asset management | ⬜ | 媒资管理（BytePlus）激活 |
-| Add basic information | ⬜ | 图标 1024×1024、名称、描述、Terms/Privacy URL |
+| Activate media asset management | ⬜ | 媒资管理（BytePlus）激活（status=2） |
+| Add basic information | 🔶 | 图标 ✅ / 邮箱验证 ✅ / 版权声明 ✅ / 信任域名 ✅ / Terms·Privacy ✅；**表单保存卡点**（Save/Submit 不发请求，疑似 Apple Team ID 或前端校验），交接清单见 [004 更新](/progress/updates/2026-10-14-004-basic-info) |
 | Submit version for review | ⬜ | 版本提审 |
 
-## 5. 常见问题
+## 6. 常见问题
 
 **Q：预览为什么打不开？**
 A：确认用 T 包（日本区测试客户端）+ 测试账号白名单；预览版需「Partial rollout 0%」。
@@ -114,7 +171,10 @@ A：确认用 T 包（日本区测试客户端）+ 测试账号白名单；预�
 A：取决于平台支付环境配置。建议先在测试环境走通 Webhook 再配置正式环境。
 
 **Q：媒资（视频）怎么传？**
-A：2026-09-28 起新过审的短剧开发者必须使用平台 Media Assets & Player（BytePlus），视频审核通过后只能由平台播放器播放。
+A：2026-09-28 起新过审的短剧开发者必须使用平台 Media Assets & Player（BytePlus）。视频审核通过后只能由平台播放器播放。详见本文档第 4 节。
+
+**Q：AI 生成的剧集封面/预告片能不能用？**
+A：可以用，但平台要求**明确标注 AIGC**，且不得用于误导用户或侵权。
 
 **Q：域名白名单怎么配？**
 A：Development configuration → Security → Trusted domains，只支持 https 且不能带通配符和路径，最多 20 个。
