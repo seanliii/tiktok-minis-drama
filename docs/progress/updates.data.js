@@ -8,9 +8,9 @@ export default createContentLoader('progress/updates/*.md', {
         url,
         title: frontmatter.title || '未命名更新',
         date: frontmatter.date || '',
-        author: frontmatter.author || '未署名',
-        workstream: frontmatter.workstream || '未分类',
-        status: frontmatter.status || '进行中',
+        type: frontmatter.type || '功能',
+        status: frontmatter.status || '已完成',
+        features: Array.isArray(frontmatter.features) ? frontmatter.features : [],
         excerpt,
       }))
       .sort((a, b) => String(b.date).localeCompare(String(a.date)))

@@ -1,0 +1,43 @@
+name: 问题反馈（可附截图）
+description: 提交 Bug 或使用问题，支持直接粘贴截图
+title: "[问题] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **提交前请确认**：描述清楚在哪看到的、预期是什么、实际是什么。
+        **截图可直接粘贴（Ctrl/Cmd+V）或拖入下方输入框。**
+  - type: input
+    id: page
+    attributes:
+      label: 所在页面 / 位置
+      placeholder: 例如：首页剧单 / 播放页 / 付费浮层 / 优化池
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: 设备环境
+      options:
+        - 安卓手机（内测包 M）
+        - 安卓手机（内测包 T）
+        - iOS
+        - 电脑浏览器
+  - type: textarea
+    id: desc
+    attributes:
+      label: 问题描述
+      description: 发生了什么？预期应该是什么？
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: 截图说明
+      description: 把截图粘贴到这里，可多张；如有标注说明也写在这里
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤（可选）
+      placeholder: 1. 打开… 2. 点击… 3. 出现…

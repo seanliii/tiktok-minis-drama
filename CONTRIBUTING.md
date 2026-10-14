@@ -1,30 +1,28 @@
 # 团队协作规范
 
-本文档站点的完整协作说明见 [docs/team/how-to-update.md](docs/team/how-to-update.md)，此处为 GitHub 侧简要规范。
+## 两个板块
 
-## 基本约定
+| 板块 | 用途 |
+| --- | --- |
+| 进度看板（首页） | 查看必要功能、T+N 排期、工作流状态、全部开发记录（含界面截图） |
+| 优化池提交（/pool/） | 提问题 / 建议（发 Issue，支持截图），页面底部评论区留言 |
 
-1. 所有变更通过 **PR 合并到 `main` 分支**，合并后 GitHub Actions 自动部署到 GitHub Pages。
-2. 提交进度走三步：新增 `docs/progress/updates/YYYY-MM-DD-标题.md` → 更新 `docs/progress/index.md` 看板 → 提交 PR。
-3. PR 请使用「进度更新」模板，方便 review。
+## 进度更新规则（AI 每次提交同步执行）
+
+1. 每次代码提交必须同步更新进度看板：在 `docs/progress/updates/` 新增 / 更新一条记录
+2. 记录内容：`title / date / type / status / features` + 功能描述 + 界面截图（放 `docs/progress/screenshots/`）
+3. 更新首页看板表格中对应工作流状态
+4. 构建时自动按日期倒序汇总到「开发记录」，无需手动维护列表
+
+## 反馈流程
+
+- **问题 / Bug**：到优化池页点「提交问题」按钮发 Issue（模板支持粘贴截图），标签 `bug`
+- **功能建议**：点「提功能建议」按钮，标签 `enhancement`，负责人评估后进看板排期
+- **轻量留言**：任意页面底部评论区直接写（giscus，需 GitHub 账号）
+- 问题处理关闭后，优化池列表自动标记「已处理」
 
 ## 分支与提交
 
-- 分支命名：`docs/xxx`（文档）、`feat/xxx`（功能建议）、`fix/xxx`（勘误）
-- 提交信息：`docs: 更新 P4 支付进度` / `feat: 建议增加收藏功能`
-- 一个 PR 只做一件事，便于追溯
-
-## 进度记录 frontmatter 必填字段
-
-| 字段 | 说明 |
-| --- | --- |
-| `title` | 更新标题 |
-| `date` | 日期，格式 `YYYY-MM-DD`（用于排序） |
-| `author` | 负责人姓名 |
-| `workstream` | 所属工作流：商务合规 / P0~P7 / 全局 |
-| `status` | 未开始 / 进行中 / 已完成 / 阻塞 |
-
-## 功能需求建议
-
-- 提交 issue，标签 `enhancement`，描述场景与预期
-- 由项目负责人评估后排期，纳入 `docs/guide/timeline.md` 与看板
+- 分支命名：`docs/xxx`（文档）、`feat/xxx`（功能）、`fix/xxx`（修复）
+- 提交信息：`feat: 剧集详情页` / `fix: 支付回调幂等` 等，中文说明
+- 一个提交只做一件事，便于看板逐条对应

@@ -1,0 +1,25 @@
+name: 功能建议
+description: 提出新功能或优化建议，进入优化池评估排期
+title: "[建议] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: desc
+    attributes:
+      label: 功能 / 优化描述
+      description: 描述场景与期望效果，如有参考图可直接粘贴
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: 价值说明
+      description: 解决什么问题？对用户体验 / 付费转化 / 收入的影响？
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 建议优先级
+      options:
+        - 高（影响付费 / 主流程）
+        - 中（体验优化）
+        - 低（锦上添花）

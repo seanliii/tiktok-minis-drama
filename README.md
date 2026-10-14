@@ -1,41 +1,43 @@
 # TikTok Minis 漫剧项目
 
-TikTok Minis「漫剧」付费 + 订阅小程序：**开发文档 + 接入指南 + 团队进度看板**，一站式团队协作站点。
+TikTok Minis「漫剧」付费 + 订阅小程序。团队协作站点，只有两个板块：
 
-- 站点地址：GitHub Pages 自动部署（合并到 `main` 分支即自动发布）
-- 本地预览：`npm install && npm run docs:dev`
+| 板块 | 地址 | 说明 |
+| --- | --- | --- |
+| 进度看板 | https://seanliii.github.io/tiktok-minis-drama/ | 必要功能清单、T+N 开发方案、工作流看板、**全部开发记录**（每次代码提交同步更新，含功能描述与界面截图） |
+| 优化池提交 | https://seanliii.github.io/tiktok-minis-drama/pool/ | 一键提交问题 / 建议（**支持粘贴截图**），列表实时展示处理状态；每页底部可直接评论留言 |
+
+## 开发节奏
+
+- **启动时间待定**：等待 TikTok for Developers 账号、Minis App（clientKey）、企业认证材料就绪
+- 账号到位当天记为 **T**，从 T 开始：AI 24h 开发 3 天（T+0 ~ T+2）+ 测试 2 天（T+3 ~ T+4）→ T+5 提审 → T+8 ~ T+12 上线（随平台审核浮动）
 
 ## 目录结构
 
 ```
 .
-├── docs/                        # 文档站点（VitePress）
-│   ├── .vitepress/config.mts    # 站点配置（导航 / 侧边栏）
-│   ├── index.md                 # 站点首页
-│   ├── guide/                   # 开发文档
-│   │   ├── tech-form.md         # TikTok Minis 技术形态
-│   │   ├── architecture.md      # 漫剧开发架构
-│   │   ├── onboarding.md        # 接入全流程
-│   │   ├── api.md               # 核心 API 接入（登录/授权/支付/订阅）
-│   │   └── timeline.md          # 开发时间计划
-│   ├── progress/                # 进度看板
-│   │   ├── index.md             # 看板（工作流状态 + 更新自动汇总）
-│   │   └── updates/             # 团队进度记录（按模板新增文件）
-│   └── team/
-│       └── how-to-update.md     # 团队协作指南
-├── CONTRIBUTING.md              # GitHub 协作规范（简要版）
-└── .github/
-    ├── workflows/deploy-pages.yml          # GitHub Pages 自动部署
-    └── PULL_REQUEST_TEMPLATE/progress_update.md  # 进度更新 PR 模板
+├── docs/                              # 文档站点（VitePress）
+│   ├── .vitepress/
+│   │   ├── config.mts                 # 站点配置（两板块导航）
+│   │   └── theme/                     # giscus 评论区组件
+│   ├── index.md                       # 进度看板（首页）
+│   ├── pool/index.md                  # 优化池提交
+│   └── progress/
+│       ├── updates.data.js            # 开发记录自动聚合（按日期倒序）
+│       ├── updates/                   # 每次提交对应一条记录
+│       └── screenshots/               # 界面截图
+├── .github/
+│   ├── ISSUE_TEMPLATE/                # 问题（可附图）/ 功能建议模板
+│   ├── workflows/deploy-pages.yml     # GitHub Pages 自动部署（待推送）
+│   └── PULL_REQUEST_TEMPLATE/         # PR 模板
+├── CONTRIBUTING.md                    # 协作规范
+└── README.md
 ```
 
-## 如何提交进度 / 功能
+## 如何反馈问题 / 提建议
 
-团队任何成员都可以通过 PR 提交进度与功能建议，合并后站点自动更新，详见 [团队协作指南](docs/team/how-to-update.md)。三步走：
-
-1. 在 `docs/progress/updates/` 下按模板新增一条进度记录
-2. 更新 `docs/progress/index.md` 中的工作流看板
-3. 提交 PR（使用进度更新模板）
+1. 到「优化池提交」页点按钮发 Issue（截图直接粘贴）
+2. 或在任意页面底部评论区留言（需 GitHub 账号，登录后首次会请求授权 giscus 评论应用）
 
 ## 官方参考文档（Lark）
 
