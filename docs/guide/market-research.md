@@ -44,8 +44,6 @@ TikTok Minis 是运行在 TikTok WebView 里的 **H5 Web App**，通过 `window.
 - **主页入口**：主页右上角菜单 → `TikTok Minis` 查看全部小程序
 - **视频锚点**：短视频挂载 Minis 组件，点击即用，无需跳转 / 下载
 
-![TikTok Minis 入口界面参考](../progress/screenshots/market-research-top.png)
-
 **短剧小程序内部典型界面**（以 TikTok 自家 LimeShorts 为参照，各家大同小异）：
 
 | 区块 | 样式与内容 |

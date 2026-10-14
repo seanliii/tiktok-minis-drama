@@ -1,0 +1,25 @@
+{
+  "name": "tt-minis-aurora",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Aurora Drama - TikTok Minis 漫剧小程序",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "pinia": "^2.1.7",
+    "vant": "^4.9.0",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "typescript": "^5.4.5",
+    "unplugin-vue-components": "^0.27.0",
+    "vite": "^5.2.11",
+    "vue-tsc": "^2.0.19"
+  }
+}

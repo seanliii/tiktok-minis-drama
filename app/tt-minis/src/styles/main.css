@@ -1,0 +1,41 @@
+:root {
+  --aurora-bg: #0f0f16;
+  --aurora-card: #1b1b26;
+  --aurora-text: #f2f2f7;
+  --aurora-text2: #9a9aad;
+  --aurora-accent: #ff3b5c;
+  --aurora-accent2: #ff7a45;
+  --aurora-gold: #ffb800;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  background: var(--aurora-bg);
+  color: var(--aurora-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  overscroll-behavior: none;
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 通用渐变标题 */
+.grad-text {
+  background: linear-gradient(90deg, var(--aurora-accent), var(--aurora-accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

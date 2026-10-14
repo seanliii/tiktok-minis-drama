@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#16161f" />
+    <title>Aurora Drama - 漫剧</title>
+    <!-- TikTok Minis SDK：真机环境由客户端注入能力，浏览器环境走本地模拟 -->
+    <script src="https://connect.tiktok-minis.com/drama/sdk.js"></script>
+    <script>
+      // SDK 就绪后初始化（真机由客户端注入 window.TTMinis）
+      ;(function () {
+        var check = setInterval(function () {
+          if (window.TTMinis && window.TTMinis.init) {
+            clearInterval(check)
+            try {
+              TTMinis.init({ clientKey: 'mnp696ef4kyeebk7' })
+            } catch (e) {
+              // 浏览器开发环境无 TTMinis，走本地模拟
+              console.warn('[TTMinis] init skip:', e)
+            }
+          }
+        }, 200)
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

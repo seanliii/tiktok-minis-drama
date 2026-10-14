@@ -1,0 +1,10 @@
+{
+  "appName": "Aurora Drama",
+  "appId": "7670022867891177493",
+  "clientKey": "mnp696ef4kyeebk7",
+  "entry": "dist/index.html",
+  "trustedDomains": [
+    "https://connect.tiktok-minis.com",
+    "https://picsum.photos"
+  ]
+}
