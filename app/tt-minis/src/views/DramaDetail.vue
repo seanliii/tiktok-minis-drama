@@ -20,21 +20,21 @@
 
     <!-- 付费引导横幅 -->
     <div class="banner">
-      <div class="banner-text">
-        <div class="banner-title">前 {{ drama.freeEpisodes }} 集免费看</div>
-        <div class="banner-sub">解锁全部 {{ drama.totalEpisodes }} 集仅需</div>
+        <div class="banner-text">
+        <div class="banner-title">最初の {{ drama.freeEpisodes }} 話は無料</div>
+        <div class="banner-sub">全 {{ drama.totalEpisodes }} 話を見るには</div>
       </div>
       <div class="banner-right">
         <span class="banner-price">🪙 66</span>
-        <button class="unlock-btn" @click="handleUnlockAll">解锁全集</button>
+        <button class="unlock-btn" @click="handleUnlockAll">全話見る</button>
       </div>
     </div>
 
     <!-- 选集 -->
     <section class="ep-section">
       <div class="section-title-row">
-        <h3 class="section-title">选集</h3>
-        <span class="ep-count">共 {{ drama.totalEpisodes }} 集 · {{ drama.freeEpisodes }} 集免费</span>
+          <h3 class="section-title">エピソード</h3>
+        <span class="ep-count">全 {{ drama.totalEpisodes }} 話 · {{ drama.freeEpisodes }} 話無料</span>
       </div>
       <div class="ep-grid">
         <div
@@ -45,7 +45,7 @@
           @click="openEpisode(ep)"
         >
           <span class="ep-num">{{ ep.id % 100 }}</span>
-          <span v-if="ep.isFree" class="ep-free-tag">免费</span>
+          <span v-if="ep.isFree" class="ep-free-tag">無料</span>
         </div>
       </div>
     </section>
@@ -59,7 +59,7 @@
       class="pay-pop"
     >
       <div class="pay-content safe-bottom">
-        <div class="pay-title grad-text">解锁剧集</div>
+        <div class="pay-title grad-text">エピソードを見る</div>
         <div class="pay-item">
           <div class="pay-item-left">
             <div class="pay-item-title">{{ payTarget.title }}</div>
@@ -70,11 +70,11 @@
             <span class="pay-price">{{ payTarget.price }}</span>
           </div>
         </div>
-        <div class="pay-balance">当前余额：🪙 {{ user.coins }}</div>
+        <div class="pay-balance">残高：🪙 {{ user.coins }}</div>
         <button class="pay-btn" :disabled="paying" @click="handlePay">
-          {{ paying ? '支付中…' : '确认支付' }}
+          {{ paying ? '決済中…' : 'コインで見る' }}
         </button>
-        <div class="pay-note">支付由 TikTok 端内 Beans 完成，前端回调仅作体验，实际发货以服务端通知为准</div>
+        <div class="pay-note">決済は TikTok 内の Beans で行われます。権利の付与はサーバー通知に基づきます</div>
       </div>
     </van-popup>
   </div>
@@ -104,7 +104,7 @@ const openEpisode = (ep: { id: number; isFree: boolean }) => {
   // 付费集：拉起解锁浮层
   payTarget.value = {
     title: `第 ${ep.id % 100} 集`,
-    desc: `${drama.value!.title} · 单集解锁`,
+    desc: `${drama.value!.title} · 単話購入`,
     price: 66,
     epId: ep.id,
   }
@@ -113,8 +113,8 @@ const openEpisode = (ep: { id: number; isFree: boolean }) => {
 
 const handleUnlockAll = () => {
   payTarget.value = {
-    title: '解锁全集',
-    desc: `${drama.value!.title} · 剩余 ${drama.value!.totalEpisodes - drama.value!.freeEpisodes} 集全部解锁`,
+    title: '全話一括購入',
+    desc: `${drama.value!.title} · 残り ${drama.value!.totalEpisodes - drama.value!.freeEpisodes} 話を全部見る`,
     price: 500,
     epId: 0,
   }
@@ -128,13 +128,13 @@ const handlePay = async () => {
     // TODO: 后端就绪后：POST /api/orders 创建预支付订单 → 返回 trade_order_id
     const trade_order_id = 'mock_order_' + Date.now()
     await ttSDK.pay({ trade_order_id })
-    ttSDK.toast('支付成功，权益已到账')
+    ttSDK.toast('決済が完了しました')
     showPay.value = false
     if (payTarget.value.epId) {
       router.push(`/player/${drama.value!.id}/${payTarget.value.epId}`)
     }
   } catch (e: any) {
-    ttSDK.toast('支付未完成')
+    ttSDK.toast('決済が完了していません')
   } finally {
     paying.value = false
   }

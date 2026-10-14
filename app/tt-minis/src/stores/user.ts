@@ -21,10 +21,10 @@ export const useUserStore = defineStore('user', () => {
 
   /** 显示授权（个人中心触发） */
   async function authorize() {
-    const res = await ttSDK.authorize()
+    const code = await ttSDK.authorize()
     // TODO: 后端就绪后替换为真实用户资料
-    nickname.value = res?.userInfo?.nickname || '漫剧用户'
-    avatar.value = res?.userInfo?.avatarUrl || ''
+    nickname.value = nickname.value || 'ドラマユーザー'
+    avatar.value = avatar.value || ''
   }
 
   return { openId, nickname, avatar, coins, isVip, loggedIn, silentLogin, authorize }

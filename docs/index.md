@@ -19,7 +19,7 @@ const statusBadge = (s) => {
 </script>
 
 ::: tip 开发已启动（T = 2026-10-14）
-TikTok 开发者平台账号已验证通过，**Aurora Drama**（App ID `7670022867891177493`，Client Key `mnp696ef4kyeebk7`）可直接开发。开发调试不依赖企业认证，商务侧继续并行推进合规。
+新应用 **DramaVerseJP**（App ID `7696338880869500980`，Client Key `mnxhskb12ahzifub`）已创建并定位**日本市场**（日语界面）。前端核心页面已完成，代码包已上传平台等待扫描。旧 Aurora Drama 弃用。使用 / 上传 / 数据说明见 [日本市场指南](/guide/jp-usage)。
 :::
 
 ## 必要功能清单（MVP）

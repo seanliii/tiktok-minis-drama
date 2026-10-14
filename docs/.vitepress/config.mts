@@ -13,6 +13,7 @@ export default defineConfig({
     nav: [
       { text: '进度看板', link: '/' },
       { text: '开发文档', link: '/guide/' },
+      { text: '日本市场指南', link: '/guide/jp-usage' },
       { text: '市场调研', link: '/guide/market-research' },
       { text: '优化池提交', link: '/pool/' },
     ],

@@ -14,9 +14,9 @@
       inactive-color="#9a9aad"
       class="tabbar"
     >
-      <van-tabbar-item to="/" icon="fire-o">首页</van-tabbar-item>
-      <van-tabbar-item to="/search" icon="search">找剧</van-tabbar-item>
-      <van-tabbar-item to="/profile" icon="user-o">我的</van-tabbar-item>
+        <van-tabbar-item to="/" icon="fire-o">ホーム</van-tabbar-item>
+      <van-tabbar-item to="/search" icon="search">検索</van-tabbar-item>
+      <van-tabbar-item to="/profile" icon="user-o">マイページ</van-tabbar-item>
     </van-tabbar>
   </div>
 </template>

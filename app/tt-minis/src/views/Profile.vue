@@ -4,9 +4,9 @@
     <div class="user-card">
       <img :src="user.avatar || defaultAvatar" class="avatar" alt="avatar" />
       <div class="user-info">
-        <div class="nickname" @click="handleAuthorize">{{ user.nickname || '点击授权登录' }}</div>
+        <div class="nickname" @click="handleAuthorize">{{ user.nickname || 'ログインする' }}</div>
         <div class="uid" v-if="user.loggedIn">ID: {{ user.openId }}</div>
-        <div v-else class="uid">静默登录后展示身份信息</div>
+        <div v-else class="uid">サイレントログイン後に表示されます</div>
       </div>
     </div>
 
@@ -15,18 +15,18 @@
       <div class="asset-item">
         <span class="asset-icon">🪙</span>
         <div class="asset-num">{{ user.coins }}</div>
-        <div class="asset-label">金币</div>
+        <div class="asset-label">コイン</div>
       </div>
       <div class="asset-divider" />
       <div class="asset-item">
         <span class="asset-icon">🎬</span>
         <div class="asset-num">{{ watchedCount }}</div>
-        <div class="asset-label">已解锁</div>
+        <div class="asset-label">購入済み</div>
       </div>
       <div class="asset-divider" />
       <div class="asset-item" @click="handleVip">
         <span class="asset-icon">👑</span>
-        <div class="asset-num">{{ user.isVip ? '已开通' : '未开通' }}</div>
+        <div class="asset-num">{{ user.isVip ? '利用中' : '未加入' }}</div>
         <div class="asset-label">VIP</div>
       </div>
     </div>
@@ -34,36 +34,36 @@
     <!-- 订阅横幅 -->
     <div class="vip-banner" @click="handleVip">
       <div class="vip-left">
-        <div class="vip-title">👑 开通会员 · 全部漫剧免费看</div>
-        <div class="vip-sub">月费 $12.99 · 新用户首月半价</div>
+        <div class="vip-title">👑 VIP会員 · 全ドラマ見放題</div>
+        <div class="vip-sub">月額 $12.99 · 新規は初月半額</div>
       </div>
-      <button class="vip-btn" @click.stop="handleVip">去开通</button>
+      <button class="vip-btn" @click.stop="handleVip">申し込む</button>
     </div>
 
     <!-- 功能列表 -->
     <van-cell-group :border="false" class="menu">
-      <van-cell title="观看记录" icon="clock-o" is-link @click="toast('开发中')" />
-      <van-cell title="我的订阅" icon="vip-card-o" is-link @click="toast('开发中')" />
-      <van-cell title="客服与反馈" icon="service-o" is-link @click="toast('开发中')" />
-      <van-cell title="设置" icon="setting-o" is-link @click="toast('开发中')" />
+      <van-cell title="視聴履歴" icon="clock-o" is-link @click="toast('開発中')" />
+      <van-cell title="マイ購入" icon="vip-card-o" is-link @click="toast('開発中')" />
+      <van-cell title="カスタマーサポート" icon="service-o" is-link @click="toast('開発中')" />
+      <van-cell title="設定" icon="setting-o" is-link @click="toast('開発中')" />
     </van-cell-group>
 
-    <p class="footer-note">Aurora Drama · TikTok Minis 漫剧</p>
+    <p class="footer-note">DramaVerse · TikTok Minis ドラマ</p>
 
     <!-- 订阅弹窗 -->
     <van-popup v-model:show="showVip" position="bottom" round :style="{ background: 'var(--aurora-card)' }" class="pay-pop">
       <div class="vip-content safe-bottom">
-        <div class="vip-pop-title grad-text">Aurora VIP</div>
+        <div class="vip-pop-title grad-text">DramaVerse VIP</div>
         <div class="vip-benefit">
-          <div class="benefit-item">✓ 全站漫剧无限看</div>
-          <div class="benefit-item">✓ 每月赠送 200 金币</div>
-          <div class="benefit-item">✓ 优先解锁新剧</div>
+          <div class="benefit-item">✓ 全ドラマ見放題</div>
+          <div class="benefit-item">✓ 毎月 200 コインプレゼント</div>
+          <div class="benefit-item">✓ 新作を最優先で視聴</div>
         </div>
         <div class="vip-price">$12.99 <span class="vip-price-sub">/ 月</span></div>
         <button class="pay-btn" :disabled="subscribing" @click="handleSubscribe">
-          {{ subscribing ? '订阅中…' : '确认订阅' }}
+          {{ subscribing ? '処理中…' : '登録する' }}
         </button>
-        <div class="pay-note">订阅为周期扣费，可随时在 TikTok 端内取消</div>
+        <div class="pay-note">定期課金です。いつでも TikTok 内で解約できます</div>
       </div>
     </van-popup>
   </div>
@@ -102,10 +102,10 @@ const handleSubscribe = async () => {
     // TODO: 后端就绪后：POST /api/subscriptions 创建订阅 → ttSDK.subscribe(planId)
     await ttSDK.subscribe('aurora_vip_monthly')
     user.isVip = true
-    ttSDK.toast('订阅成功，欢迎加入 VIP')
+    ttSDK.toast('登録が完了しました')
     showVip.value = false
   } catch (e: any) {
-    ttSDK.toast('订阅未完成')
+    ttSDK.toast('登録が完了していません')
   } finally {
     subscribing.value = false
   }

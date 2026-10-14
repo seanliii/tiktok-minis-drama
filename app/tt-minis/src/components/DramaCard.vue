@@ -3,7 +3,7 @@
     <div class="cover-wrap">
       <img :src="drama.cover" :alt="drama.title" loading="lazy" class="cover" />
       <div class="cover-mask" />
-      <span class="ep-badge">{{ drama.totalEpisodes }}集</span>
+      <span class="ep-badge">{{ drama.totalEpisodes }}話</span>
       <span class="play-badge">▶ {{ drama.playCount }}</span>
       <div class="score"><span class="score-num">{{ drama.rating }}</span></div>
     </div>
@@ -11,7 +11,7 @@
       <div class="title">{{ drama.title }}</div>
       <div class="meta">
         <span class="cat">{{ drama.category }}</span>
-        <span class="free">{{ drama.freeEpisodes }}集免费</span>
+        <span class="free">{{ drama.freeEpisodes }}話無料</span>
       </div>
     </div>
   </div>

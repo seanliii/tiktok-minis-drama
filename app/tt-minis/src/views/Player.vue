@@ -9,24 +9,24 @@
       </div>
       <div class="video-top safe-top">
         <van-icon name="arrow-left" size="22" color="#fff" class="back-btn" @click.stop="$router.back()" />
-        <span class="video-title">{{ dramaTitle }} · 第 {{ epNum }} 集</span>
+        <span class="video-title">{{ dramaTitle }} · 第 {{ epNum }} 話</span>
       </div>
       <div v-if="playing" class="video-bottom">
         <div class="progress-bar"><div class="progress-fill" :style="{ width: progress + '%' }" /></div>
         <span class="time">{{ curTime }} / {{ duration }}</span>
       </div>
-      <div class="mock-tip">媒资接入中 · 当前为体验预览</div>
+      <div class="mock-tip">メディア連携中 · プレビュー版</div>
     </div>
 
     <!-- 剧集信息与切换 -->
     <div class="player-info">
       <div class="player-title-row">
         <h2 class="player-title">{{ dramaTitle }}</h2>
-        <span class="ep-now">第 {{ epNum }} 集</span>
+        <span class="ep-now">第 {{ epNum }} 話</span>
       </div>
       <p class="player-desc">{{ dramaDesc }}</p>
 
-      <div class="ep-swipe-title">选集</div>
+      <div class="ep-swipe-title">エピソード一覧</div>
       <div class="ep-swipe">
         <div
           v-for="ep in episodes"
@@ -101,7 +101,7 @@ const stopTick = () => {
 const switchEpisode = (e: { id: number; isFree: boolean }) => {
   if (e.id === currentEpId) return
   if (!e.isFree) {
-    ttSDK.toast('该集需要解锁后观看')
+    ttSDK.toast('この話を見るには購入が必要です')
     return
   }
   progress.value = 0

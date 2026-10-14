@@ -2,7 +2,7 @@
   <div class="home safe-top">
     <!-- 顶部 -->
     <header class="home-header">
-      <div class="logo grad-text">AURORA DRAMA</div>
+      <div class="logo grad-text">DRAMAVERSE</div>
       <div class="header-right">
         <div class="coin-pill" @click="goProfile">
           <span class="coin-icon">🪙</span>
@@ -15,7 +15,7 @@
     <!-- 搜索条 -->
     <div class="search-bar" @click="$router.push('/search')">
       <van-icon name="search" color="#9a9aad" />
-      <span class="search-placeholder">搜索漫剧</span>
+        <span class="search-placeholder">ドラマを検索</span>
     </div>
 
     <!-- 分类导航 -->
@@ -36,8 +36,8 @@
       <!-- 精选推荐：横向滑动 -->
       <section class="section">
         <div class="section-header">
-          <h3 class="section-title"><span class="fire">🔥</span> 精选推荐</h3>
-          <span class="more" @click="$router.push('/search')">更多 ›</span>
+          <h3 class="section-title"><span class="fire">🔥</span> おすすめ</h3>
+          <span class="more" @click="$router.push('/search')">もっと見る ›</span>
         </div>
         <div class="drama-scroll">
           <DramaCard
@@ -53,7 +53,7 @@
       <!-- 全部剧集：双列瀑布 -->
       <section class="section">
         <div class="section-header">
-          <h3 class="section-title"><span class="new">✨</span> 全部漫剧</h3>
+          <h3 class="section-title"><span class="new">✨</span> すべてのドラマ</h3>
         </div>
         <div class="drama-grid">
           <DramaCard
@@ -64,7 +64,7 @@
             @click="openDrama(d)"
           />
         </div>
-        <van-empty v-if="!filteredList.length" description="该分类暂无内容" />
+        <van-empty v-if="!filteredList.length" description="このカテゴリーに作品はありません" />
       </section>
     </main>
 
@@ -72,7 +72,7 @@
     <van-overlay :show="showLoginMask" z-index="100">
       <div class="login-mask">
         <van-loading color="#ff3b5c" size="32" />
-        <p>正在进入漫剧世界…</p>
+        <p>ドラマの世界へ…</p>
       </div>
     </van-overlay>
   </div>

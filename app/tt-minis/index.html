@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -7,24 +7,16 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
     />
     <meta name="theme-color" content="#16161f" />
-    <title>Aurora Drama - 漫剧</title>
-    <!-- TikTok Minis SDK：真机环境由客户端注入能力，浏览器环境走本地模拟 -->
+    <title>DramaVerse - 日本の縦型ドラマ</title>
+    <!-- TikTok Minis SDK：必须作为第一个 script 引入 -->
     <script src="https://connect.tiktok-minis.com/drama/sdk.js"></script>
     <script>
-      // SDK 就绪后初始化（真机由客户端注入 window.TTMinis）
-      ;(function () {
-        var check = setInterval(function () {
-          if (window.TTMinis && window.TTMinis.init) {
-            clearInterval(check)
-            try {
-              TTMinis.init({ clientKey: 'mnp696ef4kyeebk7' })
-            } catch (e) {
-              // 浏览器开发环境无 TTMinis，走本地模拟
-              console.warn('[TTMinis] init skip:', e)
-            }
-          }
-        }, 200)
-      })()
+      // SDK 导入后立即初始化（官方规范）
+      if (window.TTMinis) {
+        TTMinis.init({
+          clientKey: 'mnxhskb12ahzifub',
+        })
+      }
     </script>
   </head>
   <body>

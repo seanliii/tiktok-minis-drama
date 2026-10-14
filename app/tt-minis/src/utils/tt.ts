@@ -1,11 +1,11 @@
 /**
- * TikTok Minis SDK 统一封装
- * 真机：window.TTMinis（官方 JSAPI）
+ * TikTok Minis SDK 统一封装（官方规范）
+ * 真机：window.TTMinis（官方 JSAPI，回调风格 authResponse.code）
  * 浏览器开发：本地模拟（mock）
- * 参考官方文档：https://bytedance.larkoffice.com/wiki/NjgSwYNSHiiMdxkJHHwcTY1lnCg
+ * 参考：https://developers.tiktok.com/docs/en/minis-sdk-get-started
  */
 
-type PayParams = { trade_order_id?: string; tradeOrderId?: string }
+type PayParams = { trade_order_id?: string; tradeOrderId?: string; orderInfo?: string }
 
 const isRealEnv = () =>
   typeof window !== 'undefined' && !!(window as any).TTMinis && typeof (window as any).TTMinis.login === 'function'
@@ -13,7 +13,7 @@ const isRealEnv = () =>
 export const ttSDK = {
   isMiniApp: isRealEnv,
 
-  /** 静默登录：获取一次性 code */
+  /** 静默登录：获取一次性 code（无授权弹窗） */
   login(): Promise<string> {
     if (!isRealEnv()) {
       return new Promise((r) => setTimeout(() => r('mock_code_' + Date.now()), 200))
@@ -21,38 +21,35 @@ export const ttSDK = {
     const TT = (window as any).TTMinis
     return new Promise<string>((resolve, reject) => {
       try {
-        TT.login()
-          .then((res: any) => resolve(res?.code || res))
-          .catch((err: any) => reject(err))
-      } catch (e) {
-        // 兼容回调风格
-        TT.login({
-          success: (res: any) => resolve(res?.code || res),
-          fail: (err: any) => reject(err),
+        // 官方推荐：回调风格，response.authResponse.code
+        TT.login((response: any) => {
+          const code = response?.authResponse?.code
+          if (code) resolve(code)
+          else reject(response)
         })
+      } catch (e) {
+        reject(e)
       }
     })
   },
 
-  /** 显示授权：申请基础资料 */
-  authorize(): Promise<any> {
+  /** 显示授权：用户点击按钮后调用，申请 user.info.basic */
+  authorize(): Promise<string> {
     if (!isRealEnv()) {
       return new Promise((r) =>
-        setTimeout(() => r({ code: 'mock_auth_code', userInfo: { nickname: '漫剧用户', avatarUrl: '' } }), 200),
+        setTimeout(() => r('mock_auth_' + Date.now()), 200),
       )
     }
     const TT = (window as any).TTMinis
-    return new Promise<any>((resolve, reject) => {
+    return new Promise<string>((resolve, reject) => {
       try {
-        TT.authorize({ scope: 'user.info.basic' })
-          .then(resolve)
-          .catch(reject)
-      } catch (e) {
-        TT.authorize({
-          scope: 'user.info.basic',
-          success: resolve,
-          fail: reject,
+        TT.authorize((response: any) => {
+          const code = response?.authResponse?.code
+          if (code) resolve(code)
+          else reject(response)
         })
+      } catch (e) {
+        reject(e)
       }
     })
   },
@@ -66,9 +63,13 @@ export const ttSDK = {
     const TT = (window as any).TTMinis
     return new Promise<any>((resolve, reject) => {
       try {
-        TT.pay(params).then(resolve).catch(reject)
+        TT.pay({
+          ...params,
+          success: resolve,
+          fail: (err: any) => reject(new Error(err?.errMsg || 'pay failed')),
+        })
       } catch (e) {
-        TT.pay({ ...params, success: resolve, fail: reject })
+        reject(e)
       }
     })
   },
@@ -82,9 +83,13 @@ export const ttSDK = {
     const TT = (window as any).TTMinis
     return new Promise<any>((resolve, reject) => {
       try {
-        TT.subscribe({ planId }).then(resolve).catch(reject)
+        TT.subscribe({
+          planId,
+          success: resolve,
+          fail: (err: any) => reject(new Error(err?.errMsg || 'subscribe failed')),
+        })
       } catch (e) {
-        TT.subscribe({ planId, success: resolve, fail: reject })
+        reject(e)
       }
     })
   },

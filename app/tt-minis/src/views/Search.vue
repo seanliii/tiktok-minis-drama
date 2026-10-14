@@ -3,14 +3,14 @@
     <div class="search-head">
       <van-search
         v-model="keyword"
-        placeholder="搜索漫剧 / 题材"
+        placeholder="ドラマを検索 / ジャンル"
         shape="round"
         background="transparent"
         @search="doSearch"
       />
     </div>
     <div class="hot-tags">
-      <span class="hot-label">热门搜索：</span>
+      <span class="hot-label">人気検索：</span>
       <span
         v-for="t in hotTags"
         :key="t"
@@ -21,7 +21,7 @@
     <div class="drama-grid">
       <DramaCard v-for="d in results" :key="d.id" :drama="d" mode="grid" @click="$router.push(`/drama/${d.id}`)" />
     </div>
-    <van-empty v-if="keyword && !results.length" description="没有找到相关漫剧" />
+    <van-empty v-if="keyword && !results.length" description="ドラマが見つかりません" />
   </div>
 </template>
 
@@ -31,7 +31,7 @@ import { dramas } from '@/utils/mock'
 import DramaCard from '@/components/DramaCard.vue'
 
 const keyword = ref('')
-const hotTags = ['逆袭', '重生', '系统', '霸总', '玄幻']
+const hotTags = ['復讐', '転生', '異世界', '社長', 'ループ']
 
 const results = computed(() => {
   if (!keyword.value.trim()) return dramas

@@ -1,10 +1,21 @@
 {
-  "appName": "Aurora Drama",
-  "appId": "7670022867891177493",
-  "clientKey": "mnp696ef4kyeebk7",
-  "entry": "dist/index.html",
-  "trustedDomains": [
-    "https://connect.tiktok-minis.com",
-    "https://picsum.photos"
-  ]
+  "navbar": {
+    "lightModeBgColor": "#0f0f16",
+    "darkModeBgColor": "#0f0f16"
+  },
+  "dev": {
+    "host": "localhost",
+    "port": 3000
+  },
+  "build": {
+    "outputDir": "dist",
+    "htmlEntry": "index.html"
+  },
+  "domain": {
+    "allowList": [
+      "https://connect.tiktok-minis.com",
+      "https://picsum.photos",
+      "https://www.tiktok.com"
+    ]
+  }
 }
