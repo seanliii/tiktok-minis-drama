@@ -6,6 +6,8 @@ title: Aurora Drama · 日本首发与后续地区扩展
 
 **当前开发交接见 [019](/progress/updates/2026-10-17-019-subscription-management)，公开文档发布结果见 [020](/progress/updates/2026-10-17-020-public-docs-release)。** 本页下方保留目标确定与版本 1 上传时的背景。公开进度站、Aurora 品牌和条款／隐私页面已经更新并验证；真实云部署、官方环境、真机和审核仍未完成，最新 Minis 包尚未上传。
 
+**2026-10-17 云服务已推进：VOD 已按量开通，ECS 标准角色已授权；专用视频空间、上传权限和 TikTok 绑定尚未完成，没有购机或部署。** 最新开通记录和未提交报价见 [021](/progress/updates/2026-10-17-021-cloud-activation)，不沿用早期未绑卡的结论。
+
 **2026-10-15，项目负责人已明确：直接使用已有 Aurora Drama 上传代码，日本为本次首发市场。** 不再等待“选 DramaVerseJP 还是 Aurora”的决定。
 
 ## 1. 唯一的本次上传目标

@@ -150,7 +150,7 @@ TIKTOK_SUBSCRIPTION_PRODUCTION=false
 
 代码已经按实际读取到的原始公开订阅文档接入，不再以“缺少完整通知结构”为由停止整个功能。以下事项仍须真实平台验证，不能由本地替身测试代替：
 
-1. BytePlus 账务与必要认证、视频空间和 Aurora 绑定；真实域名、HTTPS 业务服务、独立数据与备份。
+1. BytePlus 专用视频空间、上传权限和 Aurora 绑定；必要认证／合作合同另行核实。**付款方式已配置，VOD 已开通**，见 [021](/progress/updates/2026-10-17-021-cloud-activation)。仍需真实域名、HTTPS 业务服务、独立数据与备份。
 2. Aurora 的真实 Team ID、该 App 的邮箱验证、必要确认和审核条件；旧 DramaVerseJP 的验证结果不自动迁移。
 3. 日本正式商品档位、真实 TikTok 用户、通知地址和权限。核对当前官方 Sandbox 入口及测试档位是否对本 App 可用。
 4. 实际通知中的 `content`、交易／合同关联字段、可选金额，以及缺失环境标识的处理；缺失环境不能默认成生产。

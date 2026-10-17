@@ -6,6 +6,8 @@ title: 开发交付与团队后续验收清单
 
 **当前交接（北京时间 2026-10-17）：优先看 [019 最新开发与验证](/progress/updates/2026-10-17-019-subscription-management)，账本及责任清单见 [018](/progress/updates/2026-10-17-018-subscription-ledger)。** 云直传／导入／平台草稿登记、平台用户会话、订阅匹配通知、每期流水和解约说明已接入，完整本地回归通过。**公开文档、条款和隐私页已更新并在线验证，见 [020 发布证据](/progress/updates/2026-10-17-020-public-docs-release)。** 真实云部署、官方 Sandbox、真机和实际收费仍未验收；Linux 演练因本机虚拟机错误未完成，不能将文档发布或本地通过当成真实上线。
 
+**云服务后续更新：见 [021](/progress/updates/2026-10-17-021-cloud-activation)。VOD 已开通、ECS 标准角色已授权，不再要求重复绑卡或重复开通。** 当前继续处理专用空间、上传权限、TikTok 绑定及服务器采购／部署；本轮仅查报价，没有购买服务器。企业认证／合作合同和真实平台验收仍分别核实。
+
 **2026-10-16 历史追加**：[云端视频直传](/guide/cloud-upload)已接上核验后的“导入为草稿单集”，并增加独立[备份恢复工具](/guide/backup-restore)，见当时的 [015](/progress/updates/2026-10-16-015-import-and-migration)。较早 [013](/progress/updates/2026-10-16-013-cloud-upload)中“未激活”已被后续实查更新：**Aurora 媒资已激活，但尚未绑定 BytePlus**，见 [014](/progress/updates/2026-10-16-014-byteplus-readiness)。不把本地测试当成可收费上线。
 
 **2026-10-15 最新决定：目标应用已定为 Aurora Drama（`7670022867891177493`），先日本，韩国与东南亚后续分批扩展。** 代码绑定与公开配置已切换，见[Aurora 首发说明](/guide/aurora-launch)及[010 上传记录](/progress/updates/2026-10-15-010-aurora-upload)。下文第3节保留此前两个应用的核查背景，不再代表“尚待选 App”。
