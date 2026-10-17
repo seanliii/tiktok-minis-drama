@@ -4,7 +4,7 @@ title: Aurora Drama · 日本首发与后续地区扩展
 
 # Aurora Drama：当前日本，后续扩展韩国和东南亚
 
-**当前交接见 [018](/progress/updates/2026-10-17-018-subscription-ledger)。** 本页下方保留目标确定与版本 1 上传时的背景。后续代码、订阅与本地验收已继续推进，但真实云部署、官方环境、真机和审核仍未完成；最新 Minis 包尚未上传，公开进度站和条款也尚未同步到本地最新版。
+**当前开发交接见 [019](/progress/updates/2026-10-17-019-subscription-management)，公开文档发布结果见 [020](/progress/updates/2026-10-17-020-public-docs-release)。** 本页下方保留目标确定与版本 1 上传时的背景。公开进度站、Aurora 品牌和条款／隐私页面已经更新并验证；真实云部署、官方环境、真机和审核仍未完成，最新 Minis 包尚未上传。
 
 **2026-10-15，项目负责人已明确：直接使用已有 Aurora Drama 上传代码，日本为本次首发市场。** 不再等待“选 DramaVerseJP 还是 Aurora”的决定。
 
