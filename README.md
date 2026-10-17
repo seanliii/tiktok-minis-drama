@@ -1,17 +1,38 @@
-# TikTok Minis 漫剧项目
+# Aurora Drama · 开发与上线文档
 
-TikTok Minis「漫剧」付费 + 订阅小程序。团队协作站点，只有两个板块：
+Aurora Drama 是面向日本首发的 TikTok Minis 短剧项目，后续韩国和东南亚按内容、语言与平台要求分批开放。
+
+**最新开发交接：[019 解约说明、完整验证与上线缺项](docs/progress/updates/2026-10-17-019-subscription-management.md)；公开网站发布记录见 [020](docs/progress/updates/2026-10-17-020-public-docs-release.md)。** 负责人已授权开发直接完成文档提交、合并和发布，不再需要点击此前的 GitHub 表单。早期 DramaVerseJP 记录保留为历史，不是当前应用配置。
+
+**这个公开仓库本次只同步文档、条款／隐私和品牌资源。新增的业务后台源码、实际环境配置、用户数据、订单数据库、密钥和备份没有公开。** 原有 `app/` 目录仍是此前公开的版本，不代表最新版完整前后台。团队开发者须先通过授权渠道取得新版代码，再按使用手册操作。
 
 | 板块 | 地址 | 说明 |
 | --- | --- | --- |
 | 进度看板 | https://seanliii.github.io/tiktok-minis-drama/ | 必要功能清单、T+N 开发方案、工作流看板、**全部开发记录**（每次代码提交同步更新，含功能描述与界面截图） |
-| 开发文档 | https://seanliii.github.io/tiktok-minis-drama/guide/ | 6 篇 TikTok Minis 官方文档汇总（技术形态 / 调试 / 登录 / 授权 / 支付 / 接入全流程） |
+| 开发文档 | https://seanliii.github.io/tiktok-minis-drama/guide/ | 使用手册、内容上传、会员订阅、部署、备份与平台接入说明 |
 | 优化池提交 | https://seanliii.github.io/tiktok-minis-drama/pool/ | 一键提交问题 / 建议（**支持粘贴截图**），列表实时展示处理状态；每页底部可直接评论留言 |
 
-## 开发节奏
+## 当前状态
 
-- **启动时间待定**：等待 TikTok for Developers 账号、Minis App（clientKey）、企业认证材料就绪
-- 账号到位当天记为 **T**，从 T 开始：AI 24h 开发 3 天（T+0 ~ T+2）+ 测试 2 天（T+3 ~ T+4）→ T+5 提审 → T+8 ~ T+12 上线（随平台审核浮动）
+- 目标应用：**Aurora Drama**，App ID `7670022867891177493`。
+- 最新本地前后台、云上传／登记接入、订阅通知与每期流水、解约说明已完成本地整套验证，详见 019；外部平台和 SDK 使用明确的测试替身。
+- **真实云部署、官方 Sandbox、TikTok 真机、真实收费和应用审核仍未完成。** 文档网站上线不是短剧应用上线。
+- 域名尽量采用 `auroradrama` 相关名称，具体仍须核对注册状态、团队权属和价格；未购买或绑定新域名。
+
+## 本地预览文档
+
+```bash
+npm ci
+npm run docs:dev
+```
+
+按 GitHub Pages 子目录校验正式静态构建：
+
+```bash
+DOCS_BASE=/tiktok-minis-drama/ npm run docs:build
+```
+
+文档站可独立构建，不需要实际支付凭据、用户数据库或 BytePlus 密钥。
 
 ## 目录结构
 
@@ -19,7 +40,7 @@ TikTok Minis「漫剧」付费 + 订阅小程序。团队协作站点，只有�
 .
 ├── docs/                              # 文档站点（VitePress）
 │   ├── .vitepress/
-│   │   ├── config.mts                 # 站点配置（两板块导航）
+│   │   ├── config.mts                 # Aurora品牌、导航与公开资源配置
 │   │   └── theme/                     # giscus 评论区组件
 │   ├── index.md                       # 进度看板（首页）
 │   ├── pool/index.md                  # 优化池提交
@@ -29,7 +50,7 @@ TikTok Minis「漫剧」付费 + 订阅小程序。团队协作站点，只有�
 │       └── screenshots/               # 界面截图
 ├── .github/
 │   ├── ISSUE_TEMPLATE/                # 问题（可附图）/ 功能建议模板
-│   ├── workflows/deploy-pages.yml     # GitHub Pages 自动部署（待推送）
+│   ├── workflows/deploy-pages.yml     # 仅构建和发布文档到GitHub Pages
 │   └── PULL_REQUEST_TEMPLATE/         # PR 模板
 ├── CONTRIBUTING.md                    # 协作规范
 └── README.md

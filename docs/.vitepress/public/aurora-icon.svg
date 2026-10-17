@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="aurora-title aurora-desc">
+  <title id="aurora-title">Aurora Drama</title>
+  <desc id="aurora-desc">珊瑚色极光折带组成简洁的 A，中央留出朝右的播放开口。</desc>
+  <defs>
+    <linearGradient id="aurora-night" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1024" y2="1024">
+      <stop stop-color="#20202b"/>
+      <stop offset="1" stop-color="#101017"/>
+    </linearGradient>
+    <linearGradient id="aurora-ribbon" gradientUnits="userSpaceOnUse" x1="272" y1="800" x2="728" y2="224">
+      <stop stop-color="#ff3b5c"/>
+      <stop offset="1" stop-color="#ff7a45"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#aurora-night)" d="M0 0H1024V1024H0Z"/>
+  <path fill="url(#aurora-ribbon)" fill-rule="evenodd" transform="matrix(1.08 0 0 1.08 -40.96 -40.96)" d="M228 794L430 266C444 229 475 208 513 208C551 208 580 230 594 266L796 794H645L601 672C538 704 472 711 416 699L381 794H228ZM454 424C445 419 434 425 434 436V620C434 631 445 637 454 632L614 539C623 534 623 522 614 517L454 424Z"/>
+</svg>

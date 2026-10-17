@@ -4,7 +4,31 @@ title: 开发文档
 
 # 开发文档
 
+**2026-10-16 最新订阅进展**：[017 完整验证与后续付款处理](/progress/updates/2026-10-16-017-subscription-access) · [套餐、官方测试与已有会员恢复](/guide/subscription-workflow)。区分已验证的代码、当前会员访问与尚未完成的正式付款核销；不把原始时间或测试回调猜成真实会员期间。
+
+**2026-10-16 最新交接**：[016 全量验证与真实上线缺项](/progress/updates/2026-10-16-016-registration-readiness) · [云端草稿登记及恢复](/guide/platform-registration) · [Aurora 品牌说明](/guide/aurora-brand)。整套本地回归已通过，但云账号、部署、正式订阅和真机审核仍有工作；不是只差补卡。以下较早记录保留当时状态。
+
+**2026-10-16 继续开发**：[后台云端视频直传](/guide/cloud-upload)已从研究方案接成上传任务、官方 SDK 和服务器核验；见 [013 实施与验收记录](/progress/updates/2026-10-16-013-cloud-upload)。云端核验不是剧集创建或上架，真实账号仍需配置与联调。
+
+**当前上传应用已确定：Aurora Drama（日本首发）。** 见[目标应用与地区路线图](/guide/aurora-launch)及[010 代码上传记录](/progress/updates/2026-10-15-010-aurora-upload)。旧 DramaVerseJP 的配置、基本资料和历史版本不自动迁移。
+
+**Aurora 基本信息实际填写结果**：[011 资料保存与验证记录](/progress/updates/2026-10-15-011-aurora-basic-info)。图标、描述、条款链接、日本地区及 SDK 已保存；真实 Team ID、邮箱验证码和声明确认仍待完成，尚未提审。
+
+**云部署与采购参考（2026-10-15）**：[东京首发、阿里云／AWS 配置费用与真实上线缺项](/guide/cloud-deployment)。先区分业务服务器和视频服务；媒资同步、真实订阅及部署适配仍有开发工作，未购买或部署云资源。
+
+**后续实际开发**：[可信代理与 HTTPS 部署回归](/guide/proxy-deployment) · [订阅通知收件箱](/guide/subscription-events)。修复部署后的用户限流，订阅通知不再静默丢弃；两者均不代表平台审核或完整订阅验收已通过。
+
+**最新接入与验收入口**：[012 平台接入与剩余工作](/progress/updates/2026-10-15-012-platform-integration) · [Minis 业务会话与来源检查](/guide/minis-session-transport) · [已有平台剧目的媒资工作流](/guide/platform-media-workflow)。区分本地上传、平台媒资关联、只读订阅查询与真正收费上线，不将研究方案当作已实现功能。
+
 6 篇 TikTok Minis 官方文档（Lark）汇总，要点提炼 + 原文链接。行业与竞品背景见 [市场调研](/guide/market-research)。
+
+**2026-10-14 开发交付入口**：[日本短剧 Minis／App 对标](/guide/jp-benchmark) · [开发交付与团队后续清单](/guide/developer-delivery)。以下旧文档摘要不能代替当前源码、平台状态和当次测试记录。
+
+**实际前后台入口**：[上传、用户账号、订单与解锁使用手册](/guide/local-fullstack) · [008 全栈实施记录](/progress/updates/2026-10-14-008-fullstack)。目前支持真实本地数据库与无真钱付款测试，不以测试代替上线。
+
+**2026-10-15 同流程更新**：[测试与正式共用流程、预发布配置和验收](/guide/environment-parity) · [009 记录](/progress/updates/2026-10-15-009-environment-parity)。没有把本地模拟或离线平台替身说成正式上线。
+
+**架构背景**：[传短剧需要什么后台](/guide/content-upload-architecture)——现成发行工具与自建 Minis 的区别、轻量上传管理、业务服务端和视频云分工。
 
 ## 总览
 
