@@ -4,7 +4,7 @@ title: 开发交付与团队后续验收清单
 
 # 开发交付与团队后续验收清单
 
-**当前交接（北京时间 2026-10-17）：优先看 [018 完整进展与责任清单](/progress/updates/2026-10-17-018-subscription-ledger)。** 云直传／导入／平台草稿登记、平台用户会话、订阅匹配通知与每期流水已接入，完整本地回归通过。尚无真实云部署、官方 Sandbox、真机或实际收费验收；Linux 演练因本机虚拟机错误未完成，不能沿用本地通过结论。**GitHub 公开站点仍是旧版本，最新文档与条款也尚未发布。**
+**当前交接（北京时间 2026-10-17）：优先看 [019 最新开发与验证](/progress/updates/2026-10-17-019-subscription-management)，账本及责任清单见 [018](/progress/updates/2026-10-17-018-subscription-ledger)。** 云直传／导入／平台草稿登记、平台用户会话、订阅匹配通知、每期流水和解约说明已接入，完整本地回归通过。**公开文档、条款和隐私页已更新并在线验证，见 [020 发布证据](/progress/updates/2026-10-17-020-public-docs-release)。** 真实云部署、官方 Sandbox、真机和实际收费仍未验收；Linux 演练因本机虚拟机错误未完成，不能将文档发布或本地通过当成真实上线。
 
 **2026-10-16 历史追加**：[云端视频直传](/guide/cloud-upload)已接上核验后的“导入为草稿单集”，并增加独立[备份恢复工具](/guide/backup-restore)，见当时的 [015](/progress/updates/2026-10-16-015-import-and-migration)。较早 [013](/progress/updates/2026-10-16-013-cloud-upload)中“未激活”已被后续实查更新：**Aurora 媒资已激活，但尚未绑定 BytePlus**，见 [014](/progress/updates/2026-10-16-014-byteplus-readiness)。不把本地测试当成可收费上线。
 
