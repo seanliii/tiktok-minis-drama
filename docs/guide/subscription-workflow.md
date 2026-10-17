@@ -24,6 +24,21 @@ Aurora 的正式订阅不再用本地“1000 Beans／30 天”测试商品代替
 
 取消自动续费和当前观看权益不是一回事。`is_renewal_normal=false` 可能是停止续费或付款异常，不能直接写成“会员已失效”；当前观看以有效的 `is_subscription_rights_valid` 及对应应用、档位、环境为依据。
 
+### 解约／停止自动续费
+
+订阅页标题下增加 **“解約・自動更新の停止”** 说明入口，不藏在交易技术详情里，也不要求先登录、购买或恢复会员后才能阅读。
+
+- **TikTok Minis**：按照 TikTok 官方 Minis 条款的路径，进入 Minis 菜单页 → **Subscriptions** → 对应订阅 → **Cancel Subscription**，在平台完成操作。日本客户端的实际翻译、菜单层级和 Aurora 合同显示名仍须真机核对。
+- **实际由 Apple 扣费**：使用购买时的 Apple Account，在 iPhone 设置 → 姓名 → 订阅 → 对应合同中取消；提供 Apple 官方通用订阅管理链接。
+- **实际由 Google Play 扣费**：使用购买时的 Google 账户，在 Google Play 订阅管理中选择对应合同并取消；提供 Google 官方通用管理链接。
+- **Web 或渠道不明**：先核对购买时的账单和 TikTok Minis 合同，不根据当前拿着 iPhone 或 Android 就推定购买渠道；找不到记录时按 TikTok 官方支持路径联系平台。
+
+说明是纯静态内容。打开、关闭说明或访问官方管理页面，**不会调用本应用的取消／付款 API、恢复会话、改变会员或显示取消成功**。链接不拼接用户、交易号或合同号，也不携带本应用认证头和来源页地址；宿主不允许外跳时，仍可按页面内的设备步骤操作。
+
+正常取消自动续费与退款是两种操作。取消不表示退回已付款项，也不能仅因关闭续费就提前撤销尚有效的已付观看资格。返回后“購入を復元”只核对当前观看资格，解约是否完成须以平台或实际购买渠道的合同页面为准。
+
+本次未取得可依赖的官方 Minis 取消 SDK／取消 API 或合同级深链，因此没有编造接口，也没有使用已作废的订阅变更能力代替取消。**界面说明和本地测试不构成一次真实解约验收。**
+
 ## 2. 已有会员恢复观看
 
 当前权益读取使用用户已经授权给本应用的服务端身份，不接收客户端传来的另一个用户编号、平台 token 或“我是 VIP”标志。
@@ -153,5 +168,8 @@ TIKTOK_SUBSCRIPTION_PRODUCTION=false
 - [Subscriptions SDK](https://developers.tiktok.com/docs/en/minis-sdk-subscriptions)
 - [Webhook Events](https://developers.tiktok.com/docs/en/webhooks-events)
 - [原始订阅公开文档](https://bytedance.larkoffice.com/wiki/FyORwUjHKi5uBmkNdrrcWkE2nCh)
+- [TikTok 官方 Beans 与 Minis 条款：订阅管理和取消入口](https://www.tiktok.com/legal/page/global/mini-drama-beans-policy-for-accessing-mini-drama-content-tiktok-mini-drama-terms-of-service/en)
+- [Apple 官方取消订阅说明](https://support.apple.com/en-us/118428)
+- [Google Play 官方取消与管理订阅说明](https://support.google.com/googleplay/answer/7018481?hl=en)
 
 本轮实际打开确认：搜索结果中的 `guide-on-integrating-tiktok-minis-subscriptions` 路径返回 Page not found，不能把该索引当作更完整的新文档。当前可读指南是上面第一项，页面标注更新日期为 2026 年 9 月 1 日。
