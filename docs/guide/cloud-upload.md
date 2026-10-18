@@ -53,7 +53,7 @@
 
 ## 3. 团队需要配置哪些信息
 
-先在目标 App 的行业解决方案中确认媒体资产管理状态。**2026-10-18 最新进展：VOD 已开通，专用空间 `auroradrama-jp` 已创建，确认 Private 与 Unpublished；后台上传角色／策略、VOD SDK App ID 和 TikTok 绑定仍未完成。** IAM 编辑器异常草稿已退出、没有提交，不能把空间创建当作真实上传已通过。当前状态及 SDK App ID 获取路径以 [022 最新交接](/progress/updates/2026-10-18-022-video-space-web-team-id)为准，[021](/progress/updates/2026-10-17-021-cloud-activation)、[013](/progress/updates/2026-10-16-013-cloud-upload)和[014](/progress/updates/2026-10-16-014-byteplus-readiness)保留为历史观察。企业认证／合作合同需单独核实，不由绑卡或 VOD 可用替代。
+先在目标 App 的行业解决方案中确认媒体资产管理状态。**2026-10-18 最新进展：VOD 和私有空间已有，但官方 STS 真实代入请求返回 `AccessDenied`，尚未取得上传权限；控制台新登录会话需要负责人完成人机验证。** 负责人无需自己编写 IAM 策略，由开发继续录入、回查并测试。后台上传角色／策略、VOD SDK App ID 和 TikTok 绑定仍未完成，不能把空间创建当作真实上传已通过。当前状态以 [023 当前交接](/progress/updates/2026-10-18-023-domain-region-iam-readiness)为准；空间及 SDK App ID 路径见 [022](/progress/updates/2026-10-18-022-video-space-web-team-id)，更早观察见 [021](/progress/updates/2026-10-17-021-cloud-activation)、[013](/progress/updates/2026-10-16-013-cloud-upload)和[014](/progress/updates/2026-10-16-014-byteplus-readiness)。企业认证／合作合同需单独核实，不由绑卡或 VOD 可用替代。
 
 在运行后端的服务器安全环境中配置，不要粘贴到聊天或提交 Git：
 
