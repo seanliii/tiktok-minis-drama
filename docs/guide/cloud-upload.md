@@ -53,7 +53,7 @@
 
 ## 3. 团队需要配置哪些信息
 
-先在目标 App 的行业解决方案中确认媒体资产管理状态。**2026-10-18 最新进展：VOD 和私有空间已有，但官方 STS 真实代入请求返回 `AccessDenied`，尚未取得上传权限；控制台新登录会话需要负责人完成人机验证。** 负责人无需自己编写 IAM 策略，由开发继续录入、回查并测试。后台上传角色／策略、VOD SDK App ID 和 TikTok 绑定仍未完成，不能把空间创建当作真实上传已通过。当前状态以 [023 当前交接](/progress/updates/2026-10-18-023-domain-region-iam-readiness)为准；空间及 SDK App ID 路径见 [022](/progress/updates/2026-10-18-022-video-space-web-team-id)，更早观察见 [021](/progress/updates/2026-10-17-021-cloud-activation)、[013](/progress/updates/2026-10-16-013-cloud-upload)和[014](/progress/updates/2026-10-16-014-byteplus-readiness)。企业认证／合作合同需单独核实，不由绑卡或 VOD 可用替代。
+先在目标 App 的行业解决方案中确认媒体资产管理状态。**2026-10-18 最新进展：VOD 和私有空间已有，香港业务主机方案已确定；负责人已确认网页登录完成，但当前工具未接上同一管理会话。21:31 真实 STS 复测仍返回 `AccessDenied`。** 先由开发解决会话接入，再录入、回查并测试 IAM，不要求负责人自己写策略或在错误窗口重复登录。后台上传角色／策略、VOD SDK App ID 和 TikTok 绑定仍未完成，不能把空间创建当作真实上传已通过。当前状态以 [023 当前交接](/progress/updates/2026-10-18-023-domain-region-iam-readiness)为准；空间及 SDK App ID 路径见 [022](/progress/updates/2026-10-18-022-video-space-web-team-id)，更早观察见 [021](/progress/updates/2026-10-17-021-cloud-activation)、[013](/progress/updates/2026-10-16-013-cloud-upload)和[014](/progress/updates/2026-10-16-014-byteplus-readiness)。企业认证／合作合同需单独核实，不由绑卡或 VOD 可用替代。
 
 在运行后端的服务器安全环境中配置，不要粘贴到聊天或提交 Git：
 
@@ -70,6 +70,8 @@
 | `TIKTOK_CLIENT_KEY` / `TIKTOK_CLIENT_SECRET` | Aurora 配对的服务端身份，供 queryVideo 核实 |
 
 全部云凭据留空时，旧业务继续运行，云上传明确不可用；部分填写或格式错误时启动拒绝，不偷偷选另一个空间。
+
+**不要混淆地域：** 已选业务 ECS 在香港 `cn-hongkong`，但现有视频空间仍在柔佛 `ap-southeast-1`；`BYTEPLUS_VOD_REGION` 必须使用实际视频空间地域，不随业务主机选址改成香港。
 
 ### 最小权限与原片保护
 

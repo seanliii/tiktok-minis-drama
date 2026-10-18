@@ -2,7 +2,7 @@
 
 > **公开文档网站已发布并在线验证**：文档 PR #1 已合并，对应 GitHub Pages 工作流已成功；手机／桌面共 12 项页面检查、导航和 Aurora 图标均通过。无需再操作旧 GitHub 表单。范围仍仅限公开文档、品牌资源及文档构建配置；见 [020 发布证据](docs/progress/updates/2026-10-17-020-public-docs-release.md)。这不是应用提审、云资源购买或后台源码公开。
 
-> **最新上线准备（北京时间 2026-10-18）**：已排除加 `s` 的域名方案并核对注册局／续费参考；日本首发建议东京业务主机，保留现有 BytePlus 私有视频空间。官方 STS 实测返回 `AccessDenied`，上传授权没有完成；新控制台会话需负责人完成人机验证，IAM 技术配置由开发负责。已生成不含秘密与业务数据的私有源码包及自生成测试素材，主机／域名未购买、未云部署或真实收款，见 [023 当前交接](docs/progress/updates/2026-10-18-023-domain-region-iam-readiness.md)与[云部署手册](docs/guide/cloud-deployment.md)。
+> **最新上线准备（北京时间 2026-10-18）**：负责人已选定 **BytePlus 香港主机**和不加 `s` 的品牌域名，不再按东京／AWS 建议采购；现有柔佛区视频空间保留。负责人已确认完成登录，但自动化仍未接上同一管理会话，不能要求在错误窗口反复验证。21:31 真实 STS 复测仍返回 `AccessDenied`。私有源码包与自生成测试素材已有，主机／域名未购买、未云部署或真实收款，见 [023 当前交接](docs/progress/updates/2026-10-18-023-domain-region-iam-readiness.md)与[云部署手册](docs/guide/cloud-deployment.md)。
 
 > **视频空间创建记录（北京时间 2026-10-18）**：`auroradrama-jp` 已创建，确认私有访问和上传后不自动发布；Apple Team ID 支持网页查询，不必先安装 Developer App。见 [022 历史交接](docs/progress/updates/2026-10-18-022-video-space-web-team-id.md)。
 
