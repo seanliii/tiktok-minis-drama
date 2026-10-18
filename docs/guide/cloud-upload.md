@@ -53,7 +53,11 @@
 
 ## 3. 团队需要配置哪些信息
 
-先在目标 App 的行业解决方案中确认媒体资产管理状态。**2026-10-18 最新进展：VOD 已开通，专用空间 `auroradrama-jp` 已创建，确认 Private 与 Unpublished；后台上传角色／策略、VOD SDK App ID 和 TikTok 绑定仍未完成。** IAM 编辑器异常草稿已退出、没有提交，不能把空间创建当作真实上传已通过。当前状态及 SDK App ID 获取路径以 [022 最新交接](/progress/updates/2026-10-18-022-video-space-web-team-id)为准，[021](/progress/updates/2026-10-17-021-cloud-activation)、[013](/progress/updates/2026-10-16-013-cloud-upload)和[014](/progress/updates/2026-10-16-014-byteplus-readiness)保留为历史观察。企业认证／合作合同需单独核实，不由绑卡或 VOD 可用替代。
+**后续进展见 [025](/progress/updates/2026-10-18-025-tiktok-binding-and-deployment)：** TikTok 已使用独立只读身份完成账号绑定，刷新后仍成立。VOD 目前没有播放域名，`GetPlayInfo` 返回 `NoAvailableDomain`；TikTok 视频查询也尚未通过，需域名和调度配置后再核验。不能把上传通过直接标记为可在 Minis 播放。
+
+**024 阶段已完成：** IAM 策略、角色、真实 SDK App ID、官方浏览器上传与服务端核验，测试视频保持未发布，见 [024](/progress/updates/2026-10-18-024-live-upload-hongkong-server)。后续绑定已在 025 确认；生产后台端到端、平台可见性和播放器仍需继续验收。
+
+先在目标 App 的行业解决方案中确认媒体资产管理状态，再沿用已核验的本项目 VOD 参数。历史拒绝和浏览器会话问题见 [023](/progress/updates/2026-10-18-023-domain-region-iam-readiness)，空间及 SDK 应用管理路径见 [022](/progress/updates/2026-10-18-022-video-space-web-team-id)；不要重复创建已有策略、角色或 SDK 应用。企业认证／合作合同仍需单独核实，不由绑卡或 VOD 上传成功替代。
 
 在运行后端的服务器安全环境中配置，不要粘贴到聊天或提交 Git：
 
@@ -71,10 +75,13 @@
 
 全部云凭据留空时，旧业务继续运行，云上传明确不可用；部分填写或格式错误时启动拒绝，不偷偷选另一个空间。
 
+**不要混淆地域：** 已选业务 ECS 在香港 `cn-hongkong`，但现有视频空间仍在柔佛 `ap-southeast-1`；`BYTEPLUS_VOD_REGION` 必须使用实际视频空间地域，不随业务主机选址改成香港。
+
 ### 最小权限与原片保护
 
 - 签发者只能代入指定角色，另具备所需的 `vod:GetMediaInfos` 只读核验权限。
 - 临时上传权限只含目标空间的 `vod:ApplyUploadInfo` 和 `vod:CommitUploadInfo`。
+- **资源 TRN 必须包含实际 VOD 地域**：`trn:vod:<vodRegion>:<accountId>:space/<spaceName>`。本轮真实柔佛 API 拒绝了省略地域的旧示例；云策略与后端 STS 会话策略必须同时正确，不能用香港 ECS 地域代替或扩大为 `*`。
 - 角色信任关系与空间 TRN 必须由 BytePlus 管理员配置，不能因为已经绑定 TikTok 就假定我们后端也有上传权限。
 - **上传前关闭该空间的自动发布，并核实原片访问控制。** 本功能不修改整个空间策略；核验时只接受 `Unpublished`，但上传后才发现错误配置不能撤回已经发生的公开访问。
 - 上传角色按空间授权，不是云端强制的一集一文件或字节配额。页面的文件上限不能当成 IAM 限额。
@@ -122,10 +129,10 @@ npm run test:all
 
 仍需：
 
-- 用真实测试空间确认 STS 角色信任、权限、上传和同空间查询。
-- 测试错误空间、查询／删除／发布等权限确实被拒绝，不因报错扩大为全权限。
+- 已在真实专用空间确认 STS、上传与同空间查询；后续环境变更后仍须复查。
+- 已实测非目标空间访问、临时身份查询及签发者直接上传被拒绝。没有对真实影片执行删除／公开发布测试，也没有因报错扩大为全权限。
 - 验证官方浏览器 SDK 在实际网络中的分片、暂停／继续与过期恢复。
 - 新建／更新 album 的后台工作流已接入；仍需确认正式日语枚举、字幕契约，并在真实空间验收，不把本地隔离结果当作云端通过。
 - 部署 HTTPS、配置后台与云端允许来源，再做日本真机播放与支付验收。
 
-本功能未部署到云、未上传商业影片、未执行真实扣费或提审。后续交接见[015 开发收尾记录](/progress/updates/2026-10-16-015-import-and-migration)；原始直传实现见[013](/progress/updates/2026-10-16-013-cloud-upload)。业务数据迁移使用独立的[备份恢复工具](/guide/backup-restore)，不要复制活跃数据库的单个文件。
+真实测试视频已上传，代码与服务配置已进入香港主机，但正式业务进程尚未启用；没有上传商业影片、真实扣费或提审，当前交接见 [025](/progress/updates/2026-10-18-025-tiktok-binding-and-deployment)。原始直传实现见 [013](/progress/updates/2026-10-16-013-cloud-upload)，历史导入见 [015](/progress/updates/2026-10-16-015-import-and-migration)。业务迁移使用独立的[备份恢复工具](/guide/backup-restore)，不要复制活跃数据库的单个文件。
