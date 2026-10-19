@@ -22,7 +22,7 @@ const statusBadge = (s) => {
 ::: tip 开发已启动（T = 2026-10-14）
 **当前交接：条款、隐私和服务域名已切到 `auroradrama.app`。** 两份法律文件已独立部署、匿名及禁用 JavaScript 均可阅读；TikTok 服务端保存及页面刷新均已核对。个人中心、包内清单和后台信任域名移除了个人 GitHub。新前端已上传为版本 3，刷新确认扫描结束、可供测试账号预览，未提审或发布。见 [028 当前交接](/progress/updates/2026-10-19-028-brand-legal-pages)；Apple 编号网页申请及身份核验替代方式见[专门说明](/guide/apple-team-id-web)。
 
-**027 部署背景：域名已购，真实 HTTPS 前后台已启用。** 用户端 **https://auroradrama.app/**，后台 **https://auroradrama.app/admin/**。管理员登录、上传管理、退出及手机／桌面检查通过；生产支付仍禁用，片库为空。视频域名证书、CNAME 与调度已配置，但实际播放和 TikTok 视频查询尚未通过。**没有重复付款、没有重新买主机，也没有提审或向 TikTok 用户开放收费。** 见 [027](/progress/updates/2026-10-19-027-domain-https-activation)。
+**027 部署背景：域名已购，真实 HTTPS 前后台已启用。** 用户端 **[auroradrama.app](https://auroradrama.app/)**，后台 **[auroradrama.app/admin/](https://auroradrama.app/admin/)**。管理员登录、上传管理、退出及手机／桌面检查通过；生产支付仍禁用，片库为空。视频域名证书、CNAME 与调度已配置，但实际播放和 TikTok 视频查询尚未通过。**没有重复付款、没有重新买主机，也没有提审或向 TikTok 用户开放收费。** 见 [027](/progress/updates/2026-10-19-027-domain-https-activation)。
 
 **026 历史记录：香港 → Mac 合成恢复通过，当时域名未买、业务未启用。** 027 已完成域名、HTTPS、服务启用及真实初始生产库的备份恢复；定期加密备份、失败告警和真实付费业务恢复仍待验收。原始记录见 [026](/progress/updates/2026-10-19-026-deployment-recovery-handoff)。
 
