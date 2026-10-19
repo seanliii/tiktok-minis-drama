@@ -4,17 +4,19 @@ title: 开发交付与团队后续验收清单
 
 # 开发交付与团队后续验收清单
 
-**当前交接（北京时间 2026-10-19）：优先看 [026 恢复验证与接力清单](/progress/updates/2026-10-19-026-deployment-recovery-handoff)。** 香港前后台已构建、生产配置已安装；实际 Linux → Mac 的合成订单与权益恢复通过，业务服务仍未启用。当前最先需要负责人完成域名注册商账号、注册人及付款资料。定期生产备份、HTTPS、平台播放、官方 Sandbox、日本真机、真实收费及提审仍未完成，不能将文档发布或合成恢复通过当成真实上线。
+**当前交接（北京时间 2026-10-19）：优先看 [027 域名与真实 HTTPS 启用](/progress/updates/2026-10-19-027-domain-https-activation)。** 域名已购，前台 `https://auroradrama.app/`、后台 `/admin/` 已启用并通过管理员登录与页面检查；支付关闭、片库为空。初始真实生产库已备份恢复。平台播放、官方 Sandbox、日本真机、真实收费、提审及长期备份／证书运维仍未完成。
 
 既有应用能力与本地回归见 [019](/progress/updates/2026-10-17-019-subscription-management)、[025](/progress/updates/2026-10-18-025-tiktok-binding-and-deployment)，账本设计见 [018](/progress/updates/2026-10-17-018-subscription-ledger)。早期本机虚拟机错误不再代表当前目标 Linux 无法验证；025 已在香港完成前后台构建和服务端回归。
 
-**云服务最新更新：见 [025](/progress/updates/2026-10-18-025-tiktok-binding-and-deployment)。IAM、VOD SDK App ID、真实私有上传与TikTok账号绑定已确认；香港主机已构建前后台并准备私有服务配置，正式业务尚未启用。** 域名仍需注册商账号与付款资料；VOD 缺播放域名，平台视频查询和真实收费未验收。不再要求重复登录、购买同一主机或另开 AWS／阿里云账号。真实 Team ID、目标应用邮箱验证和声明仍需负责人提供／确认；不把安装 Developer App 或升级 26 系统作为查号前提，见 [022](/progress/updates/2026-10-18-022-video-space-web-team-id)。企业认证／合作合同和真实平台验收仍分别核实。
+**新版前端已上传为 Aurora 版本 2，刷新后仍可预览。** 它使用真实 API，包中不含后台或环境秘密；三个精确信任域名已保存。平台仍要求基本信息审核，本轮没有提审或发布。
+
+**025／026 为历史阶段，当前以 027 为准。** IAM、SDK App ID、真实上传、绑定、域名付款和 HTTPS 已分别核实，不再要求重办。视频域名虽已配置，实际播放仍未通过。真实 Team ID、Aurora 邮箱验证和声明仍需负责人提供／确认；不要求安装 Developer App 或升级 26 系统，见 [022](/progress/updates/2026-10-18-022-video-space-web-team-id)。阿里云邮箱验证和域名付款不会代替 TikTok 的验证或收款资格。
 
 **2026-10-16 历史追加**：[云端视频直传](/guide/cloud-upload)已接上核验后的“导入为草稿单集”，并增加独立[备份恢复工具](/guide/backup-restore)，见当时的 [015](/progress/updates/2026-10-16-015-import-and-migration)。较早 [013](/progress/updates/2026-10-16-013-cloud-upload)中“未激活”已被后续实查更新：**Aurora 媒资已激活，但尚未绑定 BytePlus**，见 [014](/progress/updates/2026-10-16-014-byteplus-readiness)。不把本地测试当成可收费上线。
 
 **2026-10-15 目标确定记录：应用为 Aurora Drama（`7670022867891177493`），先日本，韩国与东南亚后续分批扩展。** 代码绑定与公开配置已切换，见[Aurora 首发说明](/guide/aurora-launch)及[010 上传记录](/progress/updates/2026-10-15-010-aurora-upload)。下文第3节保留此前两个应用的核查背景，不再代表“尚待选 App”。
 
-**范围：现在交付的是可运行的本地前后台业务，而不只是前端样例。目标应用已确定为 Aurora，完成真实平台接入与测试后再上传新的业务版本。本文不代表正式产品已上线。**
+**范围：现在既有本地开发版，也有通过正式域名启用的独立前后台，不只是前端样例。** 目标应用是 Aurora；版本 2 已用于预览，完成真实平台接入与测试后再提审。本文不代表已在 TikTok 发布或向观众收费。
 
 本页前期交付阶段未上传；**2026-10-15 已按用户新指示上传 Aurora 专用版本 1，平台显示可预览**。仍未提交业务审核或发布，不代办企业／行业资质或 Apple 会员，不执行真实扣款。账号密码、Cookie、验证码和 Client Secret 不属于交付物。
 
@@ -24,7 +26,7 @@ title: 开发交付与团队后续验收清单
 
 **2026-10-15 后续更新**：[测试与正式共用流程](/guide/environment-parity)已说明统一结算、预发布配置、真实平台状态核对及三环境跨层验收。TLS 测试确认同站跨源可用，但 WebKit 本次跨站 Cookie 被阻止；不能写成所有跨域部署都已通过。
 
-**012 历史接入记录（2026-10-15）**：当时新增 [Minis 内存业务会话](/guide/minis-session-transport)、[已有平台剧目的关联、审核与上下架](/guide/platform-media-workflow)、逐次平台播放凭证及[管理员订阅只读核对](/guide/subscription-events)。原始范围见 [012](/progress/updates/2026-10-15-012-platform-integration)。**当前回归以 025 为准、当前待办以 026 为准**：代码已部署到香港准备目录，但业务服务仍为 `disabled / inactive`，TikTok 真机／官方支付环境尚未验收。
+**012 历史接入记录（2026-10-15）**：当时新增 [Minis 内存业务会话](/guide/minis-session-transport)、[已有平台剧目的关联、审核与上下架](/guide/platform-media-workflow)、逐次播放凭证及[管理员订阅核对](/guide/subscription-events)。原始范围见 [012](/progress/updates/2026-10-15-012-platform-integration)。最近完整回归见 025，**当前部署与待办见 027**；不能把旧的“尚未部署”继续当作当前状态。
 
 ## 1. 本轮交付是什么
 
