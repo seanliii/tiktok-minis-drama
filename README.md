@@ -1,12 +1,14 @@
 # Aurora Drama · 短剧 Minis 项目
 
-> **最新交接：域名已购，真实 HTTPS 前后台已启用。** 用户端为 `https://auroradrama.app/`，管理后台为 `https://auroradrama.app/admin/`。管理员登录、上传页、退出及手机／桌面检查通过；生产支付仍禁用，正式片库为空。主站自动续期演练通过，视频域名已配置证书和调度，但实际播放与 TikTok 查询仍未通过。见 [027 当前交接](docs/progress/updates/2026-10-19-027-domain-https-activation.md)。**云服务启用不等于 TikTok 发布或观众收款通过。**
+> **当前更新：法律入口全部改用品牌域名。** 条款 `https://auroradrama.app/terms.html`、隐私 `https://auroradrama.app/privacy.html` 已部署并保存到 TikTok；刷新后服务域名为 `https://auroradrama.app`。个人中心、Minis 包域名清单及后台信任域名均不再指向个人 GitHub。新包已上传为版本 3，刷新确认扫描结束、可供测试账号预览，未提审发布。见 [028 最新交接](docs/progress/updates/2026-10-19-028-brand-legal-pages.md)和[Apple Team ID 网页办理说明](docs/guide/apple-team-id-web.md)。
+
+> **027 阶段部署记录：域名已购，真实 HTTPS 前后台已启用。** 用户端为 `https://auroradrama.app/`，管理后台为 `https://auroradrama.app/admin/`。管理员登录、上传页、退出及手机／桌面检查通过；生产支付仍禁用，正式片库为空。主站自动续期演练通过，视频域名已配置证书和调度，但实际播放与 TikTok 查询仍未通过。见 [027](docs/progress/updates/2026-10-19-027-domain-https-activation.md)。**云服务启用不等于 TikTok 发布或观众收款通过。**
 
 > **026 历史记录**：当时完成香港 → Mac 合成恢复，域名和生产服务还未就绪。027 已完成域名购买、HTTPS 和服务启用，并对新建真实生产库进行了初始备份恢复；定期加密备份和告警仍未完成。见 [026](docs/progress/updates/2026-10-19-026-deployment-recovery-handoff.md)。
 
 > **025 历史阶段结果（已发布）**：平台绑定、真实 OAuth 星号令牌修复、香港构建及当时完整回归见 [025](docs/progress/updates/2026-10-18-025-tiktok-binding-and-deployment.md)。当时域名还未注册、VOD 缺播放域名，后续部署以 027 为准。
 
-> **Aurora 新前端版本 2 已上传并回查可供预览**，API 为 `https://auroradrama.app/api`，信任域名已保存。未提审、未发布、未验证观众付款，见 027。无需再上传旧版本 1 的包。
+> **027 历史状态：Aurora 前端版本 2 已上传并回查可供预览**，API 为 `https://auroradrama.app/api`。当前应使用 028 的版本 3，信任域名已缩减为品牌主站与视频子域名。仍未提审、未发布、未验证观众付款，无需再上传旧版本 1／2 的包。
 
 > **公开文档网站已发布并在线验证**：文档 PR #1 已合并，对应 GitHub Pages 工作流已成功；手机／桌面共 12 项页面检查、导航和 Aurora 图标均通过。无需再操作旧 GitHub 表单。范围仍仅限公开文档、品牌资源及文档构建配置；见 [020 发布证据](docs/progress/updates/2026-10-17-020-public-docs-release.md)。这不是应用提审、云资源购买或后台源码公开。
 
@@ -24,7 +26,7 @@
 
 ## 历史里程碑
 
-以下保留各阶段当时的记录；云服务与当前验证进展以 **027** 为准，既往应用回归与绑定见 **025**。不把历史待开发项当成仍未实现，也不把离线通过当成上线。
+以下保留各阶段当时的记录；当前法律域名及测试进展以 **028** 为准，云部署背景见 **027**，更早应用回归见 **025**。不把历史待开发项当成仍未实现，也不把离线通过当成上线。
 
 > **2026-10-16 订阅继续推进**：套餐、原操作恢复、官方测试入口及已有会员实时访问已接通；完整本地回归通过，本地服务已更新且原业务数据摘要一致。新品牌图标也已保存到 Aurora 后台草稿。见 [017 验证与后续实现](docs/progress/updates/2026-10-16-017-subscription-access.md)及[订阅使用说明](docs/guide/subscription-workflow.md)。**原始公开文档已补到通知结构，接下来继续付款核销和每期流水；尚未正式收款、云部署、真机验收或提审。**
 
